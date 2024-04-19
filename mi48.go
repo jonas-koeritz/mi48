@@ -261,6 +261,7 @@ func (m *MI48) StartStream() (context.CancelFunc, <-chan *image.Gray16, error) {
 					log.Printf("Failed to read packet: %s", err)
 					return
 				}
+				m.readMutex.Unlock()
 
 				if packetType == "GFRA" {
 					frame := image.NewGray16(sensorSizes[m.cameraType])
