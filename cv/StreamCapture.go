@@ -7,7 +7,7 @@ import (
 	"gocv.io/x/gocv"
 )
 
-func Read(src <-chan image.Gray16, mat *gocv.Mat) {
+func Read(src <-chan *image.Gray16, mat *gocv.Mat) {
 	// Get frame from channel
 	frame := <-src
 	bounds := frame.Bounds()
